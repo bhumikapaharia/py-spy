@@ -30,4 +30,20 @@ jobs:
               source py38-venv/bin/activate && \
               python --version && \
               uname -m && \
+              apt-get install -y curl cargo && \
+              curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -v -y --default-toolchain none && \
+              export PATH=$HOME/.cargo/bin:${PATH} && \
+              rustup --version && \
+              rustup install stable && \
+              rustup default stable && \
+              rustup --version && \
+              python -m pip install --upgrade pip && \
+              python --version && \
+              uname -m && \
+              whoami && \
+              pwd && \
+              ls && \
+              cargo --version && \
+              cargo build --release --verbose --examples && \
+              cargo test --release && \
               deactivate'
