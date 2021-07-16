@@ -43,4 +43,6 @@ jobs:
               pwd && \
               ls && \
               cargo --version && \
+              cargo build --release --verbose --examples && \
+              cargo test --release && \
               deactivate'
